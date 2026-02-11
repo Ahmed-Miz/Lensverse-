@@ -1,0 +1,43 @@
+<main>
+  <section class="bg-DarkOrange border-top border-bottom border-1 border-opacity-10 border-white">
+    <div class="container">
+      <div class="mx-auto mt-5 w-10">
+        <div
+          class="border-orang-1 rounded-5 d-flex justify-content-center align-items-center px-3 py-1 bg-lans"
+        >
+          <span class="mb-1 fs-12 text-orang">التصنيفات</span>
+          <span class="w-h-6 rounded-5 ms-2"></span>
+          <span class="w-h-6 rounded-5 ms-1"></span>
+        </div>
+      </div>
+      <div class="mx-auto text-center mt-2">
+        <h2 class="fs-60 text-white fw-bold">استكشف حسب الموضوع</h2>
+        <p class="fs-18 text-white-50 mt-1 fw-normal">اعثر على محتوى مصمم حسب اهتماماتك</p>
+      </div>
+
+      <div class="row g-4 mt-4">
+        @for (topic of Topics; track $index) {
+          <div class="col-3 ms-auto position-relative" routerLink="/blog">
+            <div class="icon">
+              <div
+                class="z-1 ms-2 position-absolute top-30 start-50px w-h-12 bg-white d-flex justify-content-center align-items-center bg-opacity-10 text-white fs-12 rounded-5"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+            </div>
+            <div class="card text-white bg-primaryColor p-4 text-end border-card rounded-3">
+              <div
+                class="bg-lans w-h-50 d-flex justify-content-center align-items-center text-oreng border-icon rounded-3 ms-auto mb-2"
+              >
+                <i class="{{ topic.icon }}"></i>
+              </div>
+
+              <p class="mb-0 fs-18 fw-bold">{{ topic.category }}</p>
+              <span class="fs-12 fw-normal text-white-50">{{ topic.name }} </span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

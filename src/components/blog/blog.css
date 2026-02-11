@@ -1,0 +1,153 @@
+.grid-background {
+  padding-top: 40px;
+  background-color: #0a0a0a;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+}
+
+.grid-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 165, 0, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+.w-h-5 {
+  width: 5px;
+  height: 5px;
+}
+
+.w-8 {
+  width: 8%;
+}
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-60 {
+  font-size: 60px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fixed {
+  left: 0px;
+  right: 0px;
+  top: 75px;
+}
+.bg-oreng {
+  background-color: var(--bgcolor-orang) !important;
+}
+button.active {
+  background-color: #fd7e14; /* البرتقالي بتاع التصميم */
+  color: #fff;
+}
+
+.w-h-30 {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.w-h-12 {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: orangered;
+}
+
+.bg-orang {
+  background-color: var(--bgcolor-orang);
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-8 {
+  font-size: 8px;
+}
+.fs-60 {
+  font-size: 60px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+
+.end-42 {
+  left: 42%;
+}
+
+.end-30 {
+  left: 30%;
+}
+
+.end-62 {
+  left: 62%;
+}
+.top-10 {
+  top: 20px;
+}
+.start-10 {
+  left: -50px;
+}
+.end-10 {
+  right: 30px;
+}
+.bottom-10 {
+  bottom: 10%;
+}
+.bg-card {
+  background-color: #161616;
+}
+.start-50px {
+  left: 50px;
+}
+
+.card {
+  transition: 1s;
+  .img-fluid {
+    transition: 1s;
+  }
+  h3 {
+    transition: 0.5s;
+  }
+  button {
+    transition: 0.3s;
+  }
+}
+.card:hover {
+  border: 1px solid var(--text-orang);
+
+  .img-fluid {
+    transform: scale(1.2);
+  }
+
+  h3 {
+    color: var(--text-orang);
+  }
+
+  button {
+    transform: translateX(3px);
+  }
+}
+
+.active-btn {
+  background-color: orangered !important;
+  color: white !important;
+  border-radius: 5px;
+}

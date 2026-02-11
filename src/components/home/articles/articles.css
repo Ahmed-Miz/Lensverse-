@@ -1,0 +1,100 @@
+.hero-section {
+  background-color: #050505;
+
+  background-image:
+    radial-gradient(circle at 100% 50%, rgba(255, 102, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 20%, rgba(255, 102, 0, 0.05) 0%, transparent 40%);
+
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 75px;
+}
+
+.w-h-30 {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.w-h-12 {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: orangered;
+}
+
+.bg-orang {
+  background-color: var(--bgcolor-orang);
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-8 {
+  font-size: 8px;
+}
+.fs-60 {
+  font-size: 60px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+
+.end-42 {
+  left: 42%;
+}
+
+.end-30 {
+  left: 30%;
+}
+
+.end-37 {
+  left: 37%;
+}
+.top-10 {
+  top: 20px;
+}
+.start-10 {
+  left: -50px;
+}
+.end-10 {
+  right: 30px;
+}
+.bottom-10 {
+  bottom: 10%;
+}
+.bg-card {
+  background-color: #161616;
+}
+.start-50px {
+  left: 50px;
+}
+
+.card {
+  transition: 1s;
+  .img-fluid {
+    transition: 1s;
+  }
+  h3 {
+    transition: 0.5s;
+  }
+  button {
+    transition: 0.3s;
+  }
+}
+.card:hover {
+  border: 1px solid var(--text-orang);
+
+  .img-fluid {
+    transform: scale(1.2);
+  }
+
+  h3 {
+    color: var(--text-orang);
+  }
+
+  button {
+    transform: translateX(3px);
+  }
+}

@@ -1,0 +1,130 @@
+<main>
+  <section class="section-1 pt-3">
+    <div class="container">
+      <div class="ms-auto mt-5 w-10">
+        <div
+          class="border-orang-1 rounded-5 d-flex justify-content-center align-items-center px-3 py-1 bg-lans"
+        >
+          <span class="mb-1 fs-12 text-orang">الأحدث</span>
+          <span class="w-h-6 rounded-5 ms-2"></span>
+          <span class="w-h-6 rounded-5 ms-1"></span>
+        </div>
+      </div>
+      <div class="text-end mt-4">
+        <h2 class="fs-60 fw-bold text-white">أحدث المقالات</h2>
+        <p class="fs-18 fw-normal text-white-50">محتوى جديد طازج من المطبعة</p>
+      </div>
+      <div class="bnt-hover">
+        <i class="fa-solid fa-arrow-left text-orang fs-12 fw-semibold"></i>
+        <button class="bg-transparent text-orang border-0 fs-12 fw-semibold">
+          عرض جميع المقالات
+        </button>
+      </div>
+
+      <div class="row g-4 mt-3">
+        @for (post of posts; track $index) {
+          <div class="col-md-4 text-end">
+            <div
+              class="card bg-card overflow-hidden rounded-4 position-relative"
+              style="height: 415px"
+            >
+              <img
+                [src]="post.image"
+                class="img card-img-top"
+                style="height: 200px"
+                [alt]="post.category"
+              />
+              <span
+                class="position-absolute end-top-10 bg-black text-white py-1 px-2 rounded-5 fs-10"
+                >{{ post.category }}</span
+              >
+              <div class="card-body bg-card z-1">
+                <span class="me-2 fs-14 text-white-50">{{ post.date }} </span>
+                <span class="fs-14 text-white-50">{{ post.readTime }} </span>
+                <i class="fa-solid fa-clock text-white-50 fs-14"></i>
+                <h5 class="card-title fs-20 text-white my-2">{{ post.title }}</h5>
+                <p class="card-text fs-14 text-white-50">
+                  {{ post.excerpt }}
+                </p>
+              </div>
+              <footer class="border-footer text-white-50 p-3 mx-3">
+                <div class="d-flex justify-content-between">
+                  <div
+                    class="chevron w-h-30 rounded-5 bg-lans d-flex justify-content-center align-items-center fs-12 text-oreng border-orang"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+
+                  <div class="d-flex">
+                    <div class="text-white me-2">
+                      <p class="mb-0 fs-14">{{ post.author.name }}</p>
+                      <p class="fs-12 text-white-50">{{ post.author.role }}</p>
+                    </div>
+                    <div class="w-h-35 border border-dark border-2 rounded-5 overflow-hidden">
+                      <img [src]="post.author.avatar" class="w-100" [alt]="post.author.name" />
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2 pt-5">
+    <div class="container"></div>
+    <div
+      class="bg-card w-70 mx-auto mt-5 border border-1 border-white border-opacity-10 rounded-5 p-5"
+    >
+      <div
+        class="mb-4 w-h-60 bg-oreng text-white d-flex justify-content-center align-items-center rounded-4 fs-4 mx-auto"
+      >
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+      <div class="text-center mb-4">
+        <h2 class="fs-2 fw-bold text-white">
+          اشترك في
+          <span class="text-oreng">نشرتنا الإخبارية</span>
+        </h2>
+        <p class="fs-18 fw-normal text-white-50">
+          احصل على نصائح التصوير الحصرية ودروس جديدة مباشرة في بريدك الإلكتروني
+        </p>
+      </div>
+      <form class="d-flex justify-content-center mb-3">
+        <div class="">
+          <button
+            type="submit"
+            class="text-white bg-oreng mb-3 me-3 py-3 px-4 border-0 fw-bold rounded-2"
+          >
+            اشترك الان
+          </button>
+        </div>
+
+        <div class="">
+          <input
+            type="password"
+            class="w-80 form-control text-end bg-black text-white text-opacity-25 py-3 border border-1 border-white border-opacity-10 shadow-none rounded-4"
+            id="inputPassword2"
+            placeholder="ادخل البريد الاكتروني"
+          />
+        </div>
+      </form>
+      <div class="d-flex justify-content-center text-white-50 fs-12">
+        <p>إلغاء الاشتراك في أي وقت</p>
+        <p class="mx-5">بدون إزعاج</p>
+        <p class="me-5">انضم لـ <span class="text-white fw-bold">+10,000</span> مصور</p>
+        <div class="w-h-30 d-flex justify-content-end ms-3">
+          @for (post of posts; track $index) {
+            <img
+              [src]="post.author.avatar"
+              class="w-100 rounded-5 border border-2 border-dark"
+              [alt]="post.author.name"
+            />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

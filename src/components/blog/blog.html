@@ -1,0 +1,262 @@
+<main>
+  <section class="grid-background">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center mt-5 me-4">
+        <div
+          class="border-orang-1 rounded-5 d-flex justify-content-center align-items-center px-3 py-1 bg-lans"
+        >
+          <span class="mb-1 fs-12 text-oreng">مدونتنا</span>
+          <i class="fa-solid fa-newspaper text-oreng fs-12 mx-1"></i>
+          <span class="w-h-5 bg-oreng rounded-5"></span>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <h1 class="fs-60 text-white">استكشف <span class="text-warning">مقالاتنا</span></h1>
+        <p class="fs-20 text-white-50">اكتشف الدروس والرؤى وأفضل الممارسات للتطوير الحديث</p>
+      </div>
+    </div>
+  </section>
+
+  <nav
+    class="bg-black position-sticky fixed z-2 p-3 border-bottom border-1 border-white border-opacity-10 mt-0"
+  >
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <button
+            (click)="filterByCategory('معدات')"
+            [class.active-btn]="activeCategory === 'معدات'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            معدات
+          </button>
+          <button
+            (click)="filterByCategory('تقنيات')"
+            [class.active-btn]="activeCategory === 'تقنيات'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            تقنيات
+          </button>
+          <button
+            (click)="filterByCategory('مناظر طبيعية')"
+            [class.active-btn]="activeCategory === 'مناظر طبيعية'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            مناظر طبيعية
+          </button>
+          <button
+            (click)="filterByCategory('بورتريه')"
+            [class.active-btn]="activeCategory === 'بورتريه'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            بورترية
+          </button>
+          <button
+            (click)="filterByCategory('إضاءة')"
+            [class.active-btn]="activeCategory === 'إضاءة'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            إضاءة
+          </button>
+          <button
+            (click)="filterByCategory('الكل')"
+            [class.active-btn]="activeCategory === 'الكل'"
+            class="bg-card border border-1 border-white border-opacity-10 text-white-50 fs-14 px-3 py-1 rounded-3 me-2"
+          >
+            جميع المقالات
+          </button>
+        </div>
+        <div>
+          <input
+            placeholder="🔍       ...ابحث في المقالات"
+            type="text"
+            class="bg-card border-1 border-white border-opacity-10 px-5 py-2 rounded-3 text-end"
+          />
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-2">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div
+          class="bg-card w-8 text-center p-1 rounded-4 mt-5 mb-0 border border-1 border-white border-opacity-10"
+        >
+          <button
+            class="bg-transparent text-white-50 border-0 fs-5"
+            (click)="truesle(1)"
+            [class.active-btn]="activeBtn === 1"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <button
+            class="bg-transparent text-white-50 border-0 fs-5"
+            (click)="falese(2)"
+            [class.active-btn]="activeBtn !== 1"
+          >
+            <i class="fa-solid fa-table-cells-large"></i>
+          </button>
+        </div>
+        <p class="text-white-50 fs-14">عرض <span class="text-white fw-bold">28</span> مقالات</p>
+      </div>
+
+      <div class="row g-4 mt-3">
+        @if (isHidden) {
+          @for (post of filteredArticles; track post.id) {
+            <div class="col-md-4 text-end" [routerLink]="['/article-details', post.id]">
+              <div
+                class="card bg-card overflow-hidden rounded-4 position-relative"
+                style="height: 415px"
+              >
+                <img
+                  [src]="post.image"
+                  class="img card-img-top"
+                  style="height: 200px"
+                  [alt]="post.category"
+                />
+                <span
+                  class="position-absolute end-top-10 bg-black text-white py-1 px-2 rounded-5 fs-10"
+                  >{{ post.category }}</span
+                >
+                <div class="card-body bg-card z-1">
+                  <span class="me-2 fs-14 text-white-50">{{ post.date }} </span>
+                  <span class="fs-14 text-white-50">{{ post.readTime }} </span>
+                  <i class="fa-solid fa-clock text-white-50 fs-14"></i>
+                  <h5 class="card-title fs-20 text-white my-2">{{ post.title }}</h5>
+                  <p class="card-text fs-14 text-white-50">
+                    {{ post.excerpt }}
+                  </p>
+                </div>
+                <footer class="border-footer text-white-50 p-3 mx-3">
+                  <div class="d-flex justify-content-between">
+                    <div
+                      class="chevron w-h-30 rounded-5 bg-lans d-flex justify-content-center align-items-center fs-12 text-oreng border-orang"
+                    >
+                      <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+
+                    <div class="d-flex">
+                      <div class="text-white me-2">
+                        <p class="mb-0 fs-14">{{ post.author.name }}</p>
+                        <p class="fs-12 text-white-50">{{ post.author.role }}</p>
+                      </div>
+                      <div class="w-h-35 border border-dark border-2 rounded-5 overflow-hidden">
+                        <img [src]="post.author.avatar" class="w-100" [alt]="post.author.name" />
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+            </div>
+          }
+        }
+      </div>
+      @if (!isHidden) {
+        @for (post of filteredArticles; track $index) {
+          <div
+            class="card mb-3 mt-5 overflow-hidden position-relative bg-card text-white rounded-4"
+            style="height: 200px"
+            [routerLink]="['/article-details', post.id]"
+          >
+            <div class="d-flex bg-info">
+              <div class="border-orang-1 rounded-4 px-2 bg-lans position-absolute end-42 top-10">
+                <span class="fs-12 text-orang">{{ post.category }}</span>
+              </div>
+              <p class="card-text text-end position-absolute end-30 top-10 text-white-50">
+                <small>{{ post.readTime }} <i class="fa-regular fa-clock"></i></small>
+              </p>
+            </div>
+
+            <div class="row g-0">
+              <div class="col-md-9 bg-card z-1">
+                <div class="card-body mt-2 text-end">
+                  <span class="bg-lans border-orang-1 text-orang fs-12 fw-bold px-2 rounded-pill">{{
+                    post.category
+                  }}</span>
+                  <span class="fs-12 text-white-50 px-3"
+                    ><i class="fa-regular fa-clock"></i>{{ post.readTime }}</span
+                  >
+                  <span class="fs-12 text-white-50"
+                    ><i class="fa-regular fa-calendar"></i>{{ post.date }}</span
+                  >
+                  <h3 class="card-title fs-20 mt-3">{{ post.title }}</h3>
+                  <p class="card-text fs-14 text-white-50">
+                    {{ post.excerpt }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3 position-relative" style="height: 350px">
+                <img [src]="post.image" class="img-fluid h-100" alt="..." />
+              </div>
+            </div>
+            <div class="bg-orang position-absolute end-10 fs-12 top-10 px-2 py-1 fw-bold rounded-5">
+              <span>مميز <i class="fa-solid fa-star fs-8"></i></span>
+            </div>
+            <div class="d-flex z-1">
+              <div class="d-flex position-absolute bottom-10 end-62">
+                <div class="text-center fs-12">
+                  <p class="mb-0">{{ post.author.name }}</p>
+                  <span class="text-white-50">{{ post.date }}</span>
+                </div>
+                <div
+                  class="w-h-30 overflow-hidden ms-2 border border-2 border-dark position-relative"
+                >
+                  <img [src]="post.author.avatar" class="w-100" alt="" />
+                </div>
+                <div class="w-h-12 position-absolute bottom-0 end-10"></div>
+              </div>
+              <div class="position-absolute bottom-10 start-50px text-orang">
+                <i class="fa-solid fa-arrow-left fs-12"></i>
+                <button class="bg-transparent border-0 fs-12 text-orang">اقرأ المقال</button>
+              </div>
+            </div>
+          </div>
+        }
+      }
+      <div class="d-flex justify-content-center mt-5">
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+          (click)="setPage(1)"
+        >
+          <i>1</i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+          (click)="setPage(2)"
+        >
+          <i>2</i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+          (click)="setPage(3)"
+        >
+          <i>3</i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+          (click)="setPage(4)"
+        >
+          <i>4</i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+          (click)="setPage(5)"
+        >
+          <i>5</i>
+        </div>
+        <div
+          class="fs-12 fw-bold me-1 w-h-35 bg-card border border-1 border-white border-opacity-10 text-white-50 d-flex justify-content-center align-items-center rounded-2"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

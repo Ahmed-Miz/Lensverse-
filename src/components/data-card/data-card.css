@@ -1,0 +1,55 @@
+.section1 {
+  width: 100%;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+.section1::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 130px;
+  background-color: rgba(0, 0, 0, 0.61);
+  z-index: 0;
+}
+.w-17 {
+  width: 17%;
+}
+
+.bg-Charcoal {
+  background-color: #535a5d;
+}
+.w-80 {
+  width: 80%;
+}
+.border-card-sm {
+  border: 2px solid rgba(255, 68, 0, 0.634);
+}
+.bg-black-20 {
+  background-color: #111111;
+}
+.bg-A1 {
+  background-color: #1a1a1a;
+}
+.w-h-15 {
+  width: 15px;
+  height: 15px;
+}
+.top-20 {
+  top: 100px;
+}
+.bg-lans2 {
+  background-color: #4c2407;
+}
+.w-h-50 {
+  width: 50px;
+  height: 50px;
+}
+.end-10 {
+  right: 20px;
+}
+.top-20 {
+  top: 20px;
+}

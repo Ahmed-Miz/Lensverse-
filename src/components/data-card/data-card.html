@@ -1,0 +1,255 @@
+<main>
+  <section [style.background-image]="'url(' + article.image + ')'" class="pt-5 section1">
+    <div class="position-relative z-1">
+      <div class="pe-5 w-17 ms-auto order-3">
+        <div class="fs-14 bg-Charcoal text-end p-1 rounded-5 z-1">
+          <span class="text-orang">{{ article.category }}</span>
+          <button class="bg-transparent border-0 text-white-50" routerLink="/blog">
+            <i class="fa-solid fa-chevron-left"></i> المدونه
+          </button>
+          <button class="bg-transparent border-0 text-white-50" routerLink="/home">
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-home"></i>
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="text-end mt-5 me-5">
+          <div class="fs-14 fw-bold text-white">
+            <span class="">{{ article.date }}<i class="fa-solid fa-clock me-2"></i></span>
+            <span class="px-3">{{ article.readTime }} <i class="fa-regular fa-calendar"></i></span>
+            <button
+              class="bg-oreng border-0 text-white rounded-pill py-1 px-2"
+              [routerLink]="['/article-details', article.category]"
+            >
+              {{ article.category }}
+            </button>
+          </div>
+          <h1 class="w-80 fs-60 mt-3 text-white fw-bold ms-auto">{{ article.title }}</h1>
+          <div
+            class="d-flex justify-content-around align-items-center bg-Charcoal w-17 ms-auto rounded-4 p-2 border border-1 border-white border-opacity-50 mt-5"
+          >
+            <div>
+              <p class="mb-0 fs-6 text-white">{{ article.author.name }}</p>
+              <p class="fs-14 text-white-50">{{ article.author.role }}</p>
+            </div>
+            <div class="w-h-60 rounded-circle overflow-hidden border-card-sm">
+              <img [src]="article.author.avatar" class="w-100" [alt]="article.author.name" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black pb-5">
+    <div class="container">
+      <div class="row text-end">
+        <div class="col-md-3">
+          <div class="position-sticky top-20 z-0">
+            <div class="bg-A1 mt-4 p-3 border border-1 border-white border-opacity-25 rounded-4">
+              <div class="d-flex justify-content-end">
+                <p class="text-white fw-bold">محتويات المقال</p>
+                <div
+                  class="w-h-35 bg-lans border-card-sm d-flex justify-content-center align-items-center text-orang rounded-3 ms-2"
+                >
+                  <i class="fa-solid fa-list"></i>
+                </div>
+              </div>
+              @for (section of sections; track $index) {
+                <div class="d-flex justify-content-end text-white-50 fs-14">
+                  <p>{{ section.title }}</p>
+                  <div
+                    class="w-h-15 bg-black-20 rounded-1 fs-10 d-flex justify-content-center align-items-center ms-2"
+                  >
+                    <span>{{ $index }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+            <div
+              class="bg-A1 d-flex justify-content-between align-items-center p-4 border border-1 border-white border-opacity-25 rounded-4 mt-3"
+            >
+              <div class="bg-black text-center p-2 rounded-3 me-2">
+                <i class="fa-regular fa-calendar text-orang"></i>
+                <p class="text-white mb-1 fw-bold">{{ article.date }}</p>
+                <span class="text-white-50 fs-12"> تاريخ النشر</span>
+              </div>
+              <div class="bg-black text-center p-2 rounded-3">
+                <i class="fa-solid fa-clock text-orang"></i>
+                <p class="text-white fw-bold mb-1">{{ article.readTime }}</p>
+                <span class="text-white-50 fs-12">وقت القراءة</span>
+              </div>
+            </div>
+            <div class="bg-lans p-4 border-card-sm rounded-4 mt-3">
+              <div class="bg-lans2 text-center p-2 rounded-3 w-h-35 mx-auto">
+                <i class="fa-solid fa-envelope text-orang"></i>
+              </div>
+              <div class="text-center p-2 rounded-3">
+                <p class="text-white fw-bold mb-1">لا تفوّت جديدنا</p>
+                <span class="text-white-50 fs-12">اشترك للحصول على أحدث المقالات</span>
+                <button class="bg-oreng w-100 text-white fw-bold border-0 rounded-3 p-2 mt-3">
+                  تصفح المزيد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div>
+            <div class="bg-lans border-card-sm text-white mt-4 p-2 rounded-4 fw-normal fs-18 mb-5">
+              <p class="mt-1">{{ article.excerpt }}</p>
+            </div>
+            @for (section of sections; track $index) {
+              <div class="article-section mb-5">
+                <div class="section-header">
+                  <div class="d-flex justify-content-end">
+                    <h2 class="text-white fs-3 fw-bold">{{ section.title }}</h2>
+                    <div
+                      class="w-h-35 bg-lans border-card-sm fs-4 d-flex justify-content-center align-items-center text-orang rounded-3 ms-3"
+                    >
+                      <i class="fa-solid fa-camera"></i>
+                    </div>
+                  </div>
+                  <span class="fw-normal fs-16 text-white text-opacity-75"
+                    >{{ section.content }}
+                  </span>
+                </div>
+
+                <p class="section-content"></p>
+              </div>
+            }
+            <div
+              class="bg-black-20 border border-1 border-white border-opacity-10 rounded-4 ms-auto p-4"
+            >
+              <div class="d-flex justify-content-end align-items-center">
+                <div class="text-white fw-bold me-2">
+                  <span>الوسوم</span>
+                </div>
+                <div
+                  class="bg-lans w-h-35 rounded-3 text-orang d-flex justify-content-center align-items-center border-card-sm"
+                >
+                  <i class="fa-solid fa-tags"></i>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span class="bg-A1 fs-12 p-2 rounded-pill text-white text-opacity-75"
+                  >إضاءة طبيعية</span
+                >
+                <span class="mx-4 bg-A1 fs-12 p-2 rounded-pill text-white text-opacity-75"
+                  >تصوير أشخاص</span
+                >
+                <span class="bg-A1 fs-12 p-2 rounded-pill text-white text-opacity-75">بورتريه</span>
+              </div>
+            </div>
+            <div
+              class="bg-black-20 border border-1 border-white border-opacity-10 rounded-4 ms-auto p-4 mt-3 d-flex justify-content-between align-items-center"
+            >
+              <div class="d-flex">
+                <div
+                  class="me-2 bg-A1 fs-12 p-2 rounded-3 text-white text-opacity-75 border border-1 border-white border-opacity-10 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-solid fa-link"></i>
+                </div>
+                <div
+                  class="me-2 bg-A1 fs-12 p-2 rounded-3 text-white text-opacity-75 border border-1 border-white border-opacity-10 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div
+                  class="me-2 bg-A1 fs-12 p-2 rounded-3 text-white text-opacity-75 border border-1 border-white border-opacity-10 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                <div
+                  class="me-2 w-h-35 bg-A1 fs-12 p-2 rounded-3 text-white text-opacity-75 border border-1 border-white border-opacity-10 d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <div class="text-white fw-bold me-2">
+                  <span>الوسوم</span>
+                </div>
+                <div
+                  class="bg-lans w-h-35 rounded-3 text-orang d-flex justify-content-center align-items-center border-card-sm"
+                >
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-black-20 border border-1 border-white border-opacity-10 rounded-4 ms-auto p-4 mt-3"
+            >
+              <div class="d-flex justify-content-end align-items-center">
+                <div class="text-white fw-bold me-2">
+                  <span class="text-orang fs-12">كاتب المقال</span>
+                  <p class="fs-20 mb-0">{{ article.author.name }}</p>
+                  <p class="fs-14 text-white-50">{{ article.author.role }}</p>
+                  <p class="fs-12 text-white-50">{{ article.slug }}</p>
+                </div>
+                <div
+                  class="bg-lans w-h-80 rounded-4 overflow-hidden text-orang d-flex justify-content-center align-items-center border-card-sm"
+                >
+                  <img [src]="article.author.avatar" class="w-100" [alt]="article.author.name" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 border-top border-1 border-white border-opacity-10 mt-5 pt-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <button class="text-orang bg-transparent border-0 fs-14 fw-semibold" routerLink="/blog">
+              <i class="fa-solid fa-arrow-left"></i> عرض الكل
+            </button>
+          </div>
+          <div class="d-flex text-end">
+            <div>
+              <p class="fs-20 text-white fw-bold mb-0">مقالات قد تعجبك</p>
+              <span class="fs-12 fw-normal text-white-50">استكشف المزيد من المحتوى المميز</span>
+            </div>
+            <div
+              class="text-orang bg-lans border-orang-1 ms-3 w-h-50 rounded-4 fs-5 d-flex justify-content-center align-items-center"
+            >
+              <i class="fa-solid fa-images"></i>
+            </div>
+          </div>
+        </div>
+        @for (post of filteredArticles; track $index) {
+          <div class="col-4 mt-5">
+            <div
+              class="card position-relative bg-card rounded-4 overflow-hidden border border-1 border-white border-opacity-25"
+              [routerLink]="['/article-details', post.id]"
+            >
+              <span
+                class="position-absolute top-20 rounded-pill fs-12 fw-bold px-2 end-10 text-white bg-oreng"
+                >{{ post.category }}</span
+              >
+              <img [src]="post.image" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text fs-14 fw-bold text-white text-end">
+                  {{ article.title }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fs-10 text-white-50">{{ post.readTime }}</span>
+                  <div class="d-flex">
+                    <p class="fs-10 text-white-50">{{ post.author.name }}</p>
+                    <img
+                      [src]="post.author.avatar"
+                      class="w-h-15 ms-2 rounded-circle"
+                      [alt]="post.author.name"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

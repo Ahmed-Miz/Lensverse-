@@ -1,0 +1,67 @@
+section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-DarkOrange {
+  background-color: #111111;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.w-10 {
+  width: 10%;
+}
+.fs-60 {
+  font-size: 60px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.bg-primaryColor {
+  background-color: #161616;
+}
+.border-card {
+  border: 1px solid #262626;
+}
+.w-h-50 {
+  width: 40px;
+  height: 40px;
+}
+.border-icon {
+  border: 1px solid rgba(255, 68, 0, 0.299);
+}
+.top-30 {
+  top: 30%;
+}
+.start-50px {
+  left: 50px;
+}
+.w-h-12 {
+  width: 30px;
+  height: 30px;
+}
+
+.card {
+  transition: 0.5s;
+  .bg-lens {
+    transition: 0.2s;
+  }
+}
+.card:hover {
+  background-color: var(--bgcolor-orang);
+  transform: translateY(-5px);
+  .bg-lans {
+    background-color: rgba(255, 255, 255, 0.245);
+    color: white;
+  }
+}
+
+.icon {
+  display: none;
+}
+.col-3:hover .icon {
+  display: block;
+}

@@ -1,0 +1,80 @@
+.footer-section {
+  background-color: #050505;
+
+  background-image:
+    radial-gradient(circle at 90% 40%, rgba(253, 126, 20, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 10% 50%, rgba(253, 126, 20, 0.1) 0%, transparent 40%);
+
+  width: 100%;
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.orange-line {
+  width: 40px;
+  height: 1px;
+  background-color: #fd7e14;
+  border-radius: 10px;
+
+  box-shadow: 0 0 8px rgba(253, 126, 20, 0.8);
+
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+.w-h-40 {
+  width: 40px;
+  height: 40px;
+}
+.w-h-35 {
+  width: 35px;
+  height: 35px;
+}
+.btn-hover {
+  transform: translateX(7%);
+  button {
+    transition: 0.3s;
+  }
+}
+.btn-hover:hover button {
+  transform: translateY(-3%);
+}
+
+li {
+  a {
+    transition: 0.5s !important;
+  }
+
+  i {
+    transition: 1s !important;
+  }
+}
+
+li:hover {
+  a {
+    color: var(--text-orang) !important;
+  }
+  i {
+    display: inline !important;
+  }
+}
+
+.icon {
+  transition: 0.5s;
+}
+.icon:hover {
+  background-color: var(--bgcolor-orang) !important;
+  color: white !important;
+  transform: scale(1.1);
+}
