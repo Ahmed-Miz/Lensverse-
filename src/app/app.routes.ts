@@ -5,7 +5,7 @@ import { Blog } from '../components/blog/blog';
 import { DataCard } from '../components/data-card/data-card';
 
 export const routes: Routes = [
-  { path: '', redirectTo:'Home', pathMatch:'full', title: 'home' },
+  { path: '', redirectTo:'home', pathMatch:'full', title: 'home' },
   { path: 'home', component: Home, title: 'home' },
   { path: 'about', component: About, title: 'about' },
   { path: 'blog', component: Blog, title: 'blog' },
